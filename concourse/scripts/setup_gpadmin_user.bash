@@ -81,7 +81,7 @@ setup_sshd() {
   # Test that sshd can start
   # /etc/init.d/sshd start # Centos 6 style FIXME
 
-  /usr/sbin/sshd -D
+  /usr/sbin/sshd
 
   ssh_keyscan_for_user root
   ssh_keyscan_for_user gpadmin
