@@ -67,6 +67,9 @@ setup_sshd() {
   test -e /etc/ssh/ssh_host_key || ssh-keygen -f /etc/ssh/ssh_host_key -N '' -t rsa1
   test -e /etc/ssh/ssh_host_rsa_key || ssh-keygen -f /etc/ssh/ssh_host_rsa_key -N '' -t rsa
   test -e /etc/ssh/ssh_host_dsa_key || ssh-keygen -f /etc/ssh/ssh_host_dsa_key -N '' -t dsa
+  test -e /etc/ssh/ssh_host_ecdsa_key || ssh-keygen -f /etc/ssh/ssh_host_ecdsa_key -N '' -t ecdsa
+  # TODO make this OS aware ... if $TARGET_OS_VERSION
+  test -e /etc/ssh/ssh_host_ed25519_key || ssh-keygen -f /etc/ssh/ssh_host_ed25519_key -N '' -t ed25519
 
   # See https://gist.github.com/gasi/5691565
   sed -ri 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config
